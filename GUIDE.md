@@ -83,7 +83,20 @@ awake and signed in, and run the app on **one PC only**, or every announcement p
   **Settings → App** (the IP address version works best on phones).
 - **Tray icon colour:** blue = printing, green = idle, red = error, grey = printer offline.
   Hover over it for each printer's status.
-- **Updates** install themselves. After an update, click the notification to see what's new.
+- **Weekly report:** the **Weekly report** button in the dashboard's top bar shows how much you
+  printed in the past 7 days: prints, printing time and estimated filament, per printer and per day.
+- **Speed control:** while a print is running or paused, the **−** and **+** next to *Speed / Flow*
+  on its card change the print speed in 10% steps, from 50% to 150%. It's available to any device
+  that can open the dashboard, so only share the address with people you trust. To turn it off, set
+  `"AllowSpeedControl": false` in `settings.json`.
+- **Alexa on/off:** **Settings → Alexa → Announce on Alexa** switches spoken announcements off and
+  on without losing your settings.
+- **Updates** install themselves. If you turned automatic updates off, or an update fails, the app
+  tells you when it's out of date: a notification, **Update now** in the tray menu and a note in
+  the dashboard's lower right. The **Check for updates** button in the dashboard looks for a newer
+  version from any device; installing is only offered on the PC running the app. After an update,
+  click the notification to see what's new.
+- **Edit Configurations** (dashboard top bar) opens the Settings window on the PC running the app.
 
 ## Back up your settings
 
