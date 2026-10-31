@@ -83,14 +83,13 @@ awake and signed in, and run the app on **one PC only**, or every announcement p
   **Settings → App** (the IP address version works best on phones).
 - **Tray icon colour:** blue = printing, green = idle, red = error, grey = printer offline.
   Hover over it for each printer's status.
-- **Weekly report:** the **Weekly report** button in the dashboard's top bar shows how much you
-  printed in the past 7 days: prints, printing time and estimated filament, per printer and per day.
+- **Reports:** the **Reports** button shows how much you printed in the past 7 days, the past 30 days, or **all time** (everything the printers still have on record): prints, printing time and estimated filament, per printer and as a chart. Switch period with the buttons at the top of the report.
 - **Speed control:** while a print is running or paused, the **−** and **+** next to *Speed / Flow*
   on its card change the print speed in 10% steps, from 50% to 150%. It's available to any device
   that can open the dashboard, so only share the address with people you trust. To turn it off, set
   `"AllowSpeedControl": false` in `settings.json`.
 - **Recordings:** the **Recordings** button lists the timelapse videos saved on your printers and plays them in the page. They stream straight from the printer, so nothing is copied to the PC, and you can skip around or download them. The printers don't offer a live camera feed.
-- **Chamber light:** each printer's card has a **Light: on / off** button for its chamber LED. Like speed control, anyone who can open the dashboard can use it. Turning the light off during a print leaves timelapse frames dark. To remove the button, set `"AllowLightControl": false` in `settings.json`.
+- **Chamber light:** the **lightbulb** on each printer's card (amber when the light is on, an outline when it's off) switches the chamber LED. Like speed control, anyone who can open the dashboard can use it. Turning the light off during a print leaves timelapse frames dark. To remove the button, set `"AllowLightControl": false` in `settings.json`.
 - **Alexa on/off:** **Settings → Alexa → Announce on Alexa** switches spoken announcements off and
   on without losing your settings.
 - **Updates** install themselves. If you turned automatic updates off, or an update fails, the app
