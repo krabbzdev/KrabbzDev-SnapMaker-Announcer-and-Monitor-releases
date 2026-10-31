@@ -88,7 +88,7 @@ awake and signed in, and run the app on **one PC only**, or every announcement p
   on its card change the print speed in 10% steps, from 50% to 150%. It's available to any device
   that can open the dashboard, so only share the address with people you trust. To turn it off, set
   `"AllowSpeedControl": false` in `settings.json`.
-- **Recordings:** the **Recordings** button lists the timelapse videos saved on your printers and plays them in the page. They stream straight from the printer, so nothing is copied to the PC, and you can skip around or download them. The printers don't offer a live camera feed.
+- **Recordings:** the **Recordings** button lists the timelapse videos saved on your printers, grouped by printer, and plays them in the page. They stream straight from the printer, so nothing is copied to the PC, and you can skip around or download them. The printers don't offer a live camera feed.
 - **Chamber light:** the **lightbulb** on each printer's card (amber when the light is on, an outline when it's off) switches the chamber LED. Like speed control, anyone who can open the dashboard can use it. Turning the light off during a print leaves timelapse frames dark. To remove the button, set `"AllowLightControl": false` in `settings.json`.
 - **Alexa on/off:** **Settings → Alexa → Announce on Alexa** switches spoken announcements off and
   on without losing your settings.
