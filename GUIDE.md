@@ -6,6 +6,10 @@ One Windows app for Snapmaker U1 printers on your home network:
 - **Monitor:** a live dashboard showing every printer's progress, model preview, temperatures,
   filament and recent prints, on this PC or any phone or computer on your network.
 
+> **Alexa announcements use [Voice Monkey](https://voicemonkey.io/)**, a third-party service and
+> Alexa skill (not part of this app) that lets apps make an Echo speak. You'll need a free Voice
+> Monkey account. The dashboard works without it.
+
 ---
 
 ## ⚠️ Before you start: two things this app needs
