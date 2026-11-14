@@ -1,4 +1,4 @@
-# How to use SnapMaker Announcer and Monitor
+# How to use U1 Announcer
 
 One Windows app for Snapmaker U1 printers on your home network:
 
@@ -93,20 +93,29 @@ Finished**; failed and cancelled prints ring **Print Failed**; pauses don't send
 
 ## Install
 
-1. Download **SnapMaker-Announcer-and-Monitor.exe** from the
-   [latest release](https://github.com/krabbzdev/KrabbzDev-SnapMaker-Announcer-and-Monitor-releases/releases/latest).
-   There's no installer: the app runs wherever you put it and updates itself there.
-   The recommended folder is `C:\Apps\U1-Alerts`.
-2. Run it. If Windows shows "Windows protected your PC", click **More info → Run anyway**.
-3. When Windows Firewall asks about network access, click **Allow**, so phones and other PCs can
+1. Download **U1-Announcer1.exe** from the
+   [latest release](https://github.com/krabbzdev/KrabbzDev-SnapMaker-U1-Announcer/releases/latest) and run it.
+   If Windows shows "Windows protected your PC", click **More info → Run anyway**.
+2. Click through the installer. It needs no administrator rights and installs the app for your Windows
+   account, then starts it. Two checkboxes, both ticked by default, put an **icon on the desktop** and
+   **start the app whenever Windows starts**.
+3. Look for the app's icon near the clock (the tray). Click it, or the desktop icon, to open the dashboard.
+4. When Windows Firewall asks about network access, click **Allow**, so phones and other PCs can
    open the dashboard.
-4. Downloaded it somewhere else? Right-click the tray icon (near the clock) →
-   **Move app to C:\Apps\U1-Alerts**.
-5. **Upgrading from an older version?** Older versions kept their settings in
-   `C:\Users\Public\Apps\KrabbzDev-U1-Monitor1`. The first time the new version runs it **copies**
-   `settings.json` from there to `C:\Apps\U1-Alerts` and leaves the old one as a backup. Run the new
-   `.exe`, use **Move app to C:\Apps\U1-Alerts**, then delete the old copy of the app and, once everything
-   works, the old folder.
+
+The app installs to `%LOCALAPPDATA%\Programs\U1-Announcer`. Your settings are kept separately in
+`%APPDATA%\U1-Announcer`, so updating, reinstalling or uninstalling never erases them.
+
+**Updating:** the app checks for a new version shortly after it starts and then once a day, and installs it
+by itself, keeping your settings. You can also right-click the tray icon → **Check for updates**.
+
+**Upgrading from the old download (the loose `.exe`)?** Run **U1-Announcer1.exe**. The first time the new
+version runs it **copies** your `settings.json` from `C:\Apps\U1-Alerts` (or, from older still,
+`C:\Users\Public\Apps\KrabbzDev-U1-Monitor1`) into the new settings folder and leaves the old file as a
+backup. Once everything works you can delete the old `C:\Apps\U1-Alerts` folder.
+
+**Uninstalling:** Windows **Settings → Apps → U1 Announcer**. Your settings folder is left behind on purpose;
+delete `%APPDATA%\U1-Announcer` too for a clean slate.
 
 ## Set up the app
 
@@ -129,9 +138,9 @@ awake and signed in, and run the app on **one PC only**, or every announcement p
 
 ## Everyday use
 
-- **Dashboard:** opens by itself when the app starts. Double-click the tray icon or choose
-  **Open dashboard** to open it again. To view it on a phone, use the address shown in
-  **Settings → App** (the IP address version works best on phones).
+- **Dashboard:** opens in your web browser when the app starts, at this PC's network (IP) address. Double-click
+  the tray icon or choose **Open dashboard** to open it again. To view it on a phone, use the address shown in
+  **Settings → App**.
 - **Tray icon colour:** blue = printing, green = idle, red = error, grey = printer offline.
   Hover over it for each printer's status.
 - **Reports:** the **Reports** button shows how much you printed in the past 7 days, the past 30 days, or **all time** (everything the printers still have on record): prints, printing time and estimated filament, per printer and as a chart. Switch period with the buttons at the top of the report.
@@ -144,10 +153,9 @@ awake and signed in, and run the app on **one PC only**, or every announcement p
 - **Print controls:** on a printer's card, **Pause** and **Resume** appear while a print is running or paused. **Cancel** sits next to them, asks you to confirm first, and is **off by default** because a cancelled print can't be resumed. **Flow** (80% to 120%, steps of 5%) and the **Part** and **Chamber** fans (steps of 10%) have their own **−** and **+**. Each control has an on/off switch in **Settings → Dashboard controls**, together with the speed and light controls. A control that's switched off disappears from the dashboard and the app refuses it. Like speed, anyone who can open the dashboard can use these, so only share the address with people you trust. Heater temperatures, moving or homing the printer, emergency stop and restarts are left out on purpose.
 - **Filament and firmware:** each toolhead tile shows the loaded filament type (hover for vendor and sub-type), and the firmware version is at the bottom of each printer's card. The printers don't report how much filament is left on a spool.
 - **Estimated cost:** the green box under each print works out what its filament costs from the weight in the sliced file, against a 1000 g roll. Set your cost per roll in **Settings → Controls → Estimated cost** (it starts at $20), and the box's name shows it.
-- **Double-clicking the tray icon:** in **Settings → App** you can choose whether it opens the dashboard window (the default) or a tab in your web browser.
 - **Alexa on/off:** **Settings → Alexa → Announce on Alexa** switches spoken alerts off and
   on without losing your settings.
-- **Updates** install themselves. If you turned automatic updates off, or an update fails, the app
+- **Updates** install themselves (checked once a day). If you turned automatic updates off, or an update fails, the app
   tells you when it's out of date: a notification, **Update now** in the tray menu and a note in
   the dashboard's lower right. The **Check for updates** button in the dashboard looks for a newer
   version from any device; installing is only offered on the PC running the app. After an update,
