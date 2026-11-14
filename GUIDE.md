@@ -131,7 +131,7 @@ the tray icon (right-click → **Settings**) or from the dashboard (**Edit Confi
    that port.)
 2. **Printers:** add each printer's name (what Alexa will call it) and its IP address, then click
    **Check printers**. Each one should show its status.
-3. **Announcements:** choose which events alert you. Alexa says the fixed phrase from its routine. The
+3. **Alerts** (on the App tab): choose which events alert you. Alexa says the fixed phrase from its routine. The
    wording here is the Windows notification, and you can use `{printer}`, `{name}` (the print),
    `{time}` (how long it ran) and `{filament}` (about how much it used).
 4. Click **Save**.
@@ -183,11 +183,6 @@ button. It has four tabs. Nothing changes until you click **Save**; **Cancel** t
 | **Alert helper address** | Where the app's small background helper listens, normally `http://127.0.0.1:8801`. Change it only if another program on the PC already uses that port. |
 | **Send test announcement** | Rings the Finished doorbell using your saved settings. If it fails, tick **Announce on Alexa** and click **Save** first. |
 
-**Announcements** (same tab): tick which outcomes alert you (**Finished**, **Failed**, **Cancelled**) and edit
-the wording of the Windows notification for each. Alexa says the phrase from its own routine. You can use
-`{printer}` (the printer's name), `{name}` (the print's file name), `{time}` (how long it ran) and `{filament}`
-(about how much it used).
-
 ### Printers tab
 
 ![The Printers tab](images/settings-printers.png)
@@ -229,6 +224,7 @@ the weight in the sliced file to show what each print's filament cost.
 | **Open the dashboard when the app starts** | Opens the dashboard in your browser each time the app launches. |
 | **Show a Windows notification too** | Pops up a Windows notification for each alert, in addition to Alexa. |
 | **Install updates automatically** | Checks once a day and installs new versions by itself, keeping your settings. Off means the app only tells you an update is available. |
+| **Alerts: Finished / Failed / Cancelled** | Tick which outcomes alert you. Unticking one stops both the Alexa doorbell and the Windows notification for it. || **Alerts: wording** | The text of the Windows notification for each outcome. It does not change what Alexa says (that's set in its routine). You can use `{printer}`, `{name}` (the print's file name), `{time}` (how long it ran) and `{filament}` (about how much it used). |
 | **Dashboard addresses** | The links shown here open the dashboard. Use the IP address one on phones and other computers. |
 | **Back up settings… / Restore settings…** | Saves everything to a file, or loads it back (see below). The backup contains your Sinric App Secret. |
 | **Setup checklist** | Re-opens the first-run checklist. |
