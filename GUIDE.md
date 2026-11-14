@@ -93,8 +93,8 @@ Finished**; failed and cancelled prints ring **Print Failed**; pauses don't send
 
 ## Install
 
-1. Download **U1-Announcer1.exe** from the
-   [latest release](https://github.com/krabbzdev/KrabbzDev-SnapMaker-U1-Announcer/releases/latest) and run it.
+1. Download **U1-Announcer1-Installer.exe** from the
+   [latest release](https://github.com/krabbzdev/KrabbzDev-SnapMaker-U1-Announcer/releases/latest) and run it. (Ignore the other `.exe`, `SnapMaker-Announcer-and-Monitor.exe`: the app uses it to update itself.)
    If Windows shows "Windows protected your PC", click **More info → Run anyway**.
 2. Click through the installer. It needs no administrator rights and installs the app for your Windows
    account, then starts it. Two checkboxes, both ticked by default, put an **icon on the desktop** and
@@ -109,7 +109,7 @@ The app installs to `%LOCALAPPDATA%\Programs\U1-Announcer`. Your settings are ke
 **Updating:** the app checks for a new version shortly after it starts and then once a day, and installs it
 by itself, keeping your settings. You can also right-click the tray icon → **Check for updates**.
 
-**Upgrading from the old download (the loose `.exe`)?** Run **U1-Announcer1.exe**. The first time the new
+**Upgrading from the old download (the loose `.exe`)?** Run **U1-Announcer1-Installer.exe**. The first time the new
 version runs it **copies** your `settings.json` from `C:\Apps\U1-Alerts` (or, from older still,
 `C:\Users\Public\Apps\KrabbzDev-U1-Monitor1`) into the new settings folder and leaves the old file as a
 backup. Once everything works you can delete the old `C:\Apps\U1-Alerts` folder.
