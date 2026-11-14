@@ -7,7 +7,7 @@ One Windows app for Snapmaker U1 printers on your home network:
   filament and recent prints, on this PC or any phone or computer on your network.
 
 > **Alexa announcements use [Sinric Pro](https://sinric.pro/)**, a third-party service and Alexa
-> skill (not part of this app), plus a small helper that comes with the app. You'll need a free
+> skill (not part of this app), plus a small helper that the app runs for you. You'll need a free
 > Sinric Pro account and [Node.js](https://nodejs.org). The dashboard works without any of it.
 > Alexa says a short fixed phrase (you choose it), so it can't name the printer. The Windows
 > notification still shows the printer, the print and how long it took.
@@ -60,20 +60,21 @@ allows three devices.
 3. Say "Alexa, discover devices" and wait about 45 seconds. Both doorbells should now be under
    **Devices → All Devices**. If you created them after linking, say it again.
 
-**c) Start the alert helper**
+**c) Put the keys in the app**
 
-A Sinric Pro doorbell only counts as online while something on your side stays connected to it. The
-app comes with a small helper that does that.
+A Sinric Pro doorbell only counts as online while something on your side stays connected to it. The app
+runs a small helper that does that for you, so there's nothing to start and no file to edit. It does need
+[Node.js](https://nodejs.org) installed on the PC (the app warns you if it can't find it).
 
-1. Open the `sinric-helper` folder that comes with the app, and run `npm install` in it, once.
-2. Copy `config.example.json` to `config.json` and fill in your App Key, App Secret and the two device
-   IDs. This file holds secrets, so keep it private. It is never uploaded.
-3. Double-click `start-helper.cmd` and leave the window open. In Sinric Pro, both doorbells should
-   turn from a red dot to green. If they stay red, check the App Key and App Secret.
-4. To start the helper with Windows, press **Win + R**, type `shell:startup`, and put a shortcut to
-   `start-helper.cmd` in the folder that opens.
+Install the app first (see **Install** below), then:
 
-**d) Build the two Alexa routines** (with the helper running, so the doorbells show as online)
+1. Open **Settings → Alexa** and tick **Announce on Alexa**.
+2. Enter your Sinric **App Key**, **App Secret** and the two **doorbell IDs**, then click **Save**.
+   Saving starts the helper.
+3. In Sinric Pro, both doorbells should turn from a red dot to green. If they stay red, check the App Key
+   and App Secret.
+
+**d) Build the two Alexa routines** (with the app running, so the doorbells show as online)
 
 1. In the **Alexa app**, go to **More → Routines → +**.
 2. Under **When**, choose **Smart Home**, pick the doorbell (for example **Print Finished**) and
@@ -85,8 +86,8 @@ app comes with a small helper that does that.
 If Alexa also plays its own doorbell announcement, turn off that doorbell's notifications in the
 Alexa app so you only hear your phrase once.
 
-The helper has to be running for alerts to work. Finished prints ring **Print Finished**; failed and
-cancelled prints ring **Print Failed**; pauses don't send an alert.
+The app has to be running for alerts to work (it starts with Windows). Finished prints ring **Print
+Finished**; failed and cancelled prints ring **Print Failed**; pauses don't send an alert.
 
 ---
 
@@ -95,21 +96,27 @@ cancelled prints ring **Print Failed**; pauses don't send an alert.
 1. Download **SnapMaker-Announcer-and-Monitor.exe** from the
    [latest release](https://github.com/krabbzdev/KrabbzDev-SnapMaker-Announcer-and-Monitor-releases/releases/latest).
    There's no installer: the app runs wherever you put it and updates itself there.
-   The recommended folder is `C:\Users\Public\Apps\KrabbzDev-U1-Monitor1`.
+   The recommended folder is `C:\Apps\U1-Alerts`.
 2. Run it. If Windows shows "Windows protected your PC", click **More info → Run anyway**.
 3. When Windows Firewall asks about network access, click **Allow**, so phones and other PCs can
    open the dashboard.
 4. Downloaded it somewhere else? Right-click the tray icon (near the clock) →
-   **Move app to Public\Apps\KrabbzDev-U1-Monitor1**.
+   **Move app to C:\Apps\U1-Alerts**.
+5. **Upgrading from an older version?** Older versions kept their settings in
+   `C:\Users\Public\Apps\KrabbzDev-U1-Monitor1`. The first time the new version runs it **copies**
+   `settings.json` from there to `C:\Apps\U1-Alerts` and leaves the old one as a backup. Run the new
+   `.exe`, use **Move app to C:\Apps\U1-Alerts**, then delete the old copy of the app and, once everything
+   works, the old folder.
 
 ## Set up the app
 
 The **Settings** window opens the first time you run the app. You can open it again any time from
 the tray icon (right-click → **Settings**) or from the dashboard (**Edit Configurations**).
 
-1. **Alexa:** make sure the alert helper is running, leave the **Alert helper address** as
-   `http://127.0.0.1:8801` (change it only if you changed the port in `config.json`), then click
-   **Send test announcement**. Your Echo should say the "finished" phrase.
+1. **Alexa:** tick **Announce on Alexa**, enter your Sinric **App Key**, **App Secret** and the two
+   **doorbell IDs**, and click **Save**. Then click **Send test announcement**. Your Echo should say the
+   "finished" phrase. (Leave **Alert helper address** as it is unless something else on the PC already uses
+   that port.)
 2. **Printers:** add each printer's name (what Alexa will call it) and its IP address, then click
    **Check printers**. Each one should show its status.
 3. **Announcements:** choose which events alert you. Alexa says the fixed phrase from its routine. The
@@ -149,17 +156,17 @@ awake and signed in, and run the app on **one PC only**, or every announcement p
 
 ## Back up your settings
 
-**Settings → App → Back up settings…** saves your helper address, printers and messages to a
-file. Use **Restore settings…** to load it on a new PC or after a reinstall. Your Sinric Pro keys
-live in the helper's `config.json`, not in this backup, so copy that file separately and keep it private.
+**Settings → App → Back up settings…** saves your Sinric keys, printers and messages to a
+file. Use **Restore settings…** to load it on a new PC or after a reinstall. The backup contains your
+Sinric App Secret, so keep it somewhere private.
 
 ## Troubleshooting
 
 | Problem | Try this |
 |---|---|
-| An Echo doesn't speak | Check that the alert helper window is open and both doorbells are green in Sinric Pro, that each doorbell has its Alexa routine (see step 2 above) with the right Echo chosen, and that Do Not Disturb is off and the volume is up. |
-| The app says it couldn't reach the alert helper | Start `start-helper.cmd`. If you changed the port in `config.json`, enter the same address in **Settings → Alexa**. |
-| The doorbells stay red in Sinric Pro | The helper isn't running or can't sign in. Check the App Key, App Secret and device IDs in `config.json`. |
+| An Echo doesn't speak | Check that **Announce on Alexa** is ticked, that both doorbells are green in Sinric Pro, that each doorbell has its Alexa routine (see step 2 above) with the right Echo chosen, and that Do Not Disturb is off and the volume is up. |
+| The app says it couldn't reach the alert helper, or that Node.js isn't installed | The app starts the helper when it starts and each time you click **Save** in Settings. Install [Node.js](https://nodejs.org) if the app says it's missing, make sure **Announce on Alexa** is ticked and the keys and IDs are filled in, then Save again. The log (**Settings → App → Open log**) has lines starting "Alert helper:" that say what went wrong. |
+| The doorbells stay red in Sinric Pro | The helper isn't running or can't sign in. Check the App Key, App Secret and doorbell IDs in **Settings → Alexa**, click **Save**, and look at the "Alert helper:" lines in the log. |
 | A printer shows **Offline** | Its IP address probably changed. Check it on the printer's screen, update it in **Settings → Printers**, and set up an IP reservation so it doesn't happen again. |
 | Dashboard won't load on a phone | Use the IP address from **Settings → App**, and make sure the PC allowed the app through Windows Firewall. |
 | Microsoft Defender blocks the download | Defender sometimes flags new, unsigned apps by mistake. Report it at [microsoft.com/wdsi/filesubmission](https://www.microsoft.com/wdsi/filesubmission) as "Incorrectly detected". On a work PC, check with your IT team first. |
