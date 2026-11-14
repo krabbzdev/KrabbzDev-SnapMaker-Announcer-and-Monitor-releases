@@ -20,7 +20,7 @@ I wanted Alexa to tell me when a print finished. I didn't want to keep walking t
 
 Alexa can't be told to say a custom sentence on demand, so the app uses a workaround. It uses [Sinric Pro](https://sinric.pro/) to "ring" a virtual Doorbell. An Alexa routine you set up listens for that doorbell and says your phrase. I use two doorbells, one for finished prints and one for failed or cancelled prints.
 
-You need a free Sinric Pro account. It's a separate third-party service, not part of this app. The app runs a small helper that keeps the doorbells connected, and that helper needs Node.js on the PC. The dashboard works fine without any of it.
+You need a free Sinric Pro account. It's a separate third-party service, not part of this app. The app runs a small helper that keeps the doorbells connected. The helper runs on Node.js, which the installer includes, so there's nothing extra to install. The dashboard works fine without any of it.
 
 The full Sinric Pro walkthrough (devices, App Key and Secret, linking the Alexa skill, building the routines) is in the [guide](https://github.com/krabbzdev/KrabbzDev-SnapMaker-U1-Announcer/blob/main/GUIDE.md).
 
@@ -28,7 +28,7 @@ The full Sinric Pro walkthrough (devices, App Key and Secret, linking the Alexa 
 
 - A Windows PC that stays on and signed in, running the app on **one PC only**, or every announcement plays twice
 - A fixed IP address (DHCP reservation) for each printer, so the app doesn't lose them after a router restart
-- A free Sinric Pro account, [Node.js](https://nodejs.org), and an Echo with the Alexa app (for the announcements)
+- A free Sinric Pro account and an Echo with the Alexa app (for the announcements). Node.js comes with the installer.
 
 ## Install
 
