@@ -6,9 +6,11 @@ One Windows app for Snapmaker U1 printers on your home network:
 - **Monitor:** a live dashboard showing every printer's progress, model preview, temperatures,
   filament and recent prints, on this PC or any phone or computer on your network.
 
+![The U1 Announcer dashboard](images/dashboard.png)
+
 > **Alexa announcements use [Sinric Pro](https://sinric.pro/)**, a third-party service and Alexa
 > skill (not part of this app), plus a small helper that the app runs for you. You'll need a free
-> Sinric Pro account and [Node.js](https://nodejs.org). The dashboard works without any of it.
+> Sinric Pro account; the installer includes everything else. The dashboard works without any of it.
 > Alexa says a short fixed phrase (you choose it), so it can't name the printer. The Windows
 > notification still shows the printer, the print and how long it took.
 
@@ -16,7 +18,10 @@ One Windows app for Snapmaker U1 printers on your home network:
 
 ## ⚠️ Before you start: two things this app needs
 
-### 1. Give each printer a fixed IP address (an "IP reservation")
+### 1. Give each printer a fixed (static) IP address (an "IP reservation")
+
+> **Best practice: set a static IP for every printer.** It's the single most useful thing you can do to
+> keep the dashboard and the announcements working week after week.
 
 The app finds your printers by their local IP address (for example `192.168.1.50`). By default,
 your router can hand a printer a different address after a restart, and the app loses track of it
@@ -41,8 +46,7 @@ and an Alexa routine you set up says a short phrase when that doorbell rings. Yo
 doorbells**, one for finished prints and one for failed or cancelled prints. Sinric Pro's free plan
 allows three devices.
 
-**You'll need:** a free account at [sinric.pro](https://sinric.pro), the Alexa app and an Echo, and
-[Node.js](https://nodejs.org) (the LTS version) on the PC that runs this app.
+**You'll need:** a free account at [sinric.pro](https://sinric.pro), and the Alexa app and an Echo.
 
 **a) Make the two doorbells**
 
@@ -63,8 +67,7 @@ allows three devices.
 **c) Put the keys in the app**
 
 A Sinric Pro doorbell only counts as online while something on your side stays connected to it. The app
-runs a small helper that does that for you, so there's nothing to start and no file to edit. It does need
-[Node.js](https://nodejs.org) installed on the PC (the app warns you if it can't find it).
+runs a small helper that does that for you, so there's nothing to start and no file to edit. The installer includes everything the helper needs.
 
 Install the app first (see **Install** below), then:
 
@@ -162,6 +165,76 @@ awake and signed in, and run the app on **one PC only**, or every announcement p
   click the notification to see what's new.
 - **Edit Configurations** (dashboard top bar) opens the Settings window on the PC running the app.
 
+## Settings reference
+
+Open **Settings** from the tray icon (right-click → **Settings**) or the dashboard's **Edit Configurations**
+button. It has four tabs. Nothing changes until you click **Save**; **Cancel** throws your edits away.
+
+### Alexa tab
+
+![The Alexa tab](images/settings-alexa.png)
+
+| Setting | What it does |
+|---|---|
+| **Announce on Alexa** | Master switch for spoken alerts. Off keeps all your keys and IDs but stops Alexa, and also stops the alert helper from running. Windows notifications are separate. |
+| **Sinric App Key** and **App Secret** | Your Sinric Pro login for the app (Sinric Pro → **Credentials**). Treat them like passwords. **Show** reveals what you typed. Stored in plain text in `settings.json`. |
+| **Finished doorbell ID** | The 24-character ID of the doorbell rung when a print finishes (Sinric Pro → **Devices**). |
+| **Failed doorbell ID** | The doorbell rung when a print fails or is cancelled. Pauses never ring a doorbell. |
+| **Alert helper address** | Where the app's small background helper listens, normally `http://127.0.0.1:8801`. Change it only if another program on the PC already uses that port. |
+| **Send test announcement** | Rings the Finished doorbell using your saved settings. If it fails, tick **Announce on Alexa** and click **Save** first. |
+
+**Announcements** (same tab): tick which outcomes alert you (**Finished**, **Failed**, **Cancelled**) and edit
+the wording of the Windows notification for each. Alexa says the phrase from its own routine. You can use
+`{printer}` (the printer's name), `{name}` (the print's file name), `{time}` (how long it ran) and `{filament}`
+(about how much it used).
+
+### Printers tab
+
+![The Printers tab](images/settings-printers.png)
+
+| Setting | What it does |
+|---|---|
+| **Name** | What the app, the notifications and the tray tooltip call the printer. |
+| **IP address** | The printer's address on your network. **Best to set a static IP for every printer** (a DHCP reservation in your router, see the top of this guide) so this address never changes. |
+| **Check every … seconds** | How often the app asks each printer for its status (10 to 600, default 30). Lower is more up to date but busier. |
+| **Check printers** | Tries every printer in the list and shows each one's status, so you can spot a wrong address right away. |
+
+To add a printer, type in the empty bottom row. To remove one, click the left edge of its row and press **Delete**.
+
+### Controls tab
+
+![The Controls tab](images/settings-controls.png)
+
+**Dashboard controls** are the buttons on the dashboard that change a printer. Anyone who can open the
+dashboard can use them, so switch off what you don't want. A switched-off control disappears from the
+dashboard and the app refuses it.
+
+| Setting | What it does |
+|---|---|
+| **Speed − / +** | Print speed in 10% steps, 50% to 150%. |
+| **Flow − / +** | Flow rate, 80% to 120% in 5% steps. |
+| **Pause and resume** | The **Pause** and **Resume** buttons. |
+| **Cancel print** | Off by default. Asks you to confirm first, and a cancelled print can't be resumed. |
+| **Part and chamber fans − / +** | Fan speed in steps of 10%. |
+| **Chamber light** | The lightbulb button that switches the chamber LED. |
+
+**Estimated cost → Cost per roll ($)** is the price of a 1000 g roll (default $20). The dashboard multiplies it by
+the weight in the sliced file to show what each print's filament cost.
+
+### App tab
+
+| Setting | What it does |
+|---|---|
+| **Start with Windows** | Starts the app when you sign in to Windows. On by default. |
+| **Open the dashboard when the app starts** | Opens the dashboard in your browser each time the app launches. |
+| **Show a Windows notification too** | Pops up a Windows notification for each alert, in addition to Alexa. |
+| **Install updates automatically** | Checks once a day and installs new versions by itself, keeping your settings. Off means the app only tells you an update is available. |
+| **Dashboard addresses** | The links shown here open the dashboard. Use the IP address one on phones and other computers. |
+| **Back up settings… / Restore settings…** | Saves everything to a file, or loads it back (see below). The backup contains your Sinric App Secret. |
+| **Setup checklist** | Re-opens the first-run checklist. |
+| **Open log** | Opens the log file in Notepad. It's the first place to look when something doesn't work. |
+| **How to use / What's new / Send feedback** | Links to this guide, the release notes and the feedback form. |
+
 ## Back up your settings
 
 **Settings → App → Back up settings…** saves your Sinric keys, printers and messages to a
@@ -173,7 +246,7 @@ Sinric App Secret, so keep it somewhere private.
 | Problem | Try this |
 |---|---|
 | An Echo doesn't speak | Check that **Announce on Alexa** is ticked, that both doorbells are green in Sinric Pro, that each doorbell has its Alexa routine (see step 2 above) with the right Echo chosen, and that Do Not Disturb is off and the volume is up. |
-| The app says it couldn't reach the alert helper, or that Node.js isn't installed | The app starts the helper when it starts and each time you click **Save** in Settings. Install [Node.js](https://nodejs.org) if the app says it's missing, make sure **Announce on Alexa** is ticked and the keys and IDs are filled in, then Save again. The log (**Settings → App → Open log**) has lines starting "Alert helper:" that say what went wrong. |
+| The app says Node.js wasn't found, or it couldn't reach the alert helper | The installer includes Node.js, so this usually means **Announce on Alexa** is off or the keys and IDs are blank. Tick it, fill them in and click **Save**: saving starts the helper. If you only ever used the small update file and never ran the installer, run **U1-Announcer1-Installer.exe** once. The log (**Settings → App → Open log**) has lines starting "Alert helper:" that say what went wrong. |
 | The doorbells stay red in Sinric Pro | The helper isn't running or can't sign in. Check the App Key, App Secret and doorbell IDs in **Settings → Alexa**, click **Save**, and look at the "Alert helper:" lines in the log. |
 | A printer shows **Offline** | Its IP address probably changed. Check it on the printer's screen, update it in **Settings → Printers**, and set up an IP reservation so it doesn't happen again. |
 | Dashboard won't load on a phone | Use the IP address from **Settings → App**, and make sure the PC allowed the app through Windows Firewall. |
