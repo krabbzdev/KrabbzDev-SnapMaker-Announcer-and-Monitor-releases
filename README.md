@@ -4,6 +4,8 @@ A Windows tray app for Snapmaker U1 printers. Alexa tells you when your print is
 
 [![Download the installer](https://img.shields.io/badge/Download%20the%20installer-U1--Announcer1--Installer.exe-0048FE?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/krabbzdev/KrabbzDev-SnapMaker-U1-Announcer/releases/latest/download/U1-Announcer1-Installer.exe)
 
+![The U1 Announcer dashboard](images/dashboard.png)
+
 ## Why I built it
 
 I wanted Alexa to tell me when a print finished. I didn't want to keep walking to the printer or checking my phone. This app does that. It also gives you a live dashboard of your printers, which grew out of the same idea.
