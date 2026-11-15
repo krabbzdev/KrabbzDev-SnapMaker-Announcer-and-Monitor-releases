@@ -24,6 +24,8 @@ Alexa can't be told to say a custom sentence on demand, so the app uses a workar
 
 You need a free Sinric Pro account. It's a separate third-party service, not part of this app. The app runs a small helper that keeps the doorbells connected. The helper runs on Node.js, which the installer includes, so there's nothing extra to install. The dashboard works fine without any of it.
 
+Alexa adds its own line when a doorbell rings ("Someone is at Print Finished"). To hear only your phrase, turn off each doorbell's announcement in the Alexa app (**Devices → the doorbell → gear icon**). The guide has the steps.
+
 The full Sinric Pro walkthrough (devices, App Key and Secret, linking the Alexa skill, building the routines) is in the [guide](https://github.com/krabbzdev/KrabbzDev-SnapMaker-U1-Announcer/blob/main/GUIDE.md).
 
 ## What you need
