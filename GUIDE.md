@@ -86,8 +86,17 @@ Install the app first (see **Install** below), then:
    For example: "A print has finished." and "A print failed or was cancelled."
 4. Save. Repeat for the other doorbell.
 
-If Alexa also plays its own doorbell announcement, turn off that doorbell's notifications in the
-Alexa app so you only hear your phrase once.
+**Turn off Alexa's own doorbell announcement.** Alexa adds its own line when a doorbell rings, such as
+"Someone is at Print Finished", right after your phrase. To hear only your phrase, do this for **each**
+doorbell:
+
+1. In the Alexa app, go to **Devices → All Devices** and open the doorbell (for example **Print Finished**).
+2. Tap the **gear icon** for its settings.
+3. Turn off the doorbell announcement setting. It's usually called **Doorbell Press Announcements** or
+   **Notifications**; the name varies a little between Alexa app versions.
+
+Your routine still runs, so you still hear your phrase. If you still hear a chime, look for a separate
+chime or sound option on the same screen.
 
 The app has to be running for alerts to work (it starts with Windows). Finished prints ring **Print
 Finished**; failed and cancelled prints ring **Print Failed**; pauses don't send an alert.
