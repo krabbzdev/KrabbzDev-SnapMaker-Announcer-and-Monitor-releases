@@ -54,6 +54,7 @@ Snapmaker U1 printers  <--- local network (IP address) --->  the app on a Window
 | File | What it is |
 |---|---|
 | `README.md` | This overview |
+| [`OVERVIEW.md`](OVERVIEW.md) | What the tool does, how it works, and every feature |
 | [`GUIDE.md`](GUIDE.md) | Full setup guide: static IPs, Sinric Pro and Alexa routines, install, settings reference, backups, troubleshooting |
 | `images/` | Screenshots used by the README and guide |
 | [Releases](https://github.com/krabbzdev/KrabbzDev-SnapMaker-U1-Announcer/releases) | The installer and the self-update file |
