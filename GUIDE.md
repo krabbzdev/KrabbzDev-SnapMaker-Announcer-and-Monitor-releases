@@ -1,4 +1,4 @@
-# How to use U1 Announcer
+# How to use KrabbzDev's U1 Monitor and Alert Tool
 
 One Windows app for Snapmaker U1 printers on your home network:
 
@@ -6,7 +6,7 @@ One Windows app for Snapmaker U1 printers on your home network:
 - **Monitor:** a live dashboard showing every printer's progress, model preview, temperatures,
   filament and recent prints, on this PC or any phone or computer on your network.
 
-![The U1 Announcer dashboard](images/dashboard.png)
+![The U1 Monitor and Alert Tool dashboard](images/dashboard.png)
 
 > **Alexa announcements use [Sinric Pro](https://sinric.pro/)**, a third-party service and Alexa
 > skill (not part of this app), plus a small helper that the app runs for you. You'll need a free
@@ -233,7 +233,8 @@ the weight in the sliced file to show what each print's filament cost.
 | **Open the dashboard when the app starts** | Opens the dashboard in your browser each time the app launches. |
 | **Show a Windows notification too** | Pops up a Windows notification for each alert, in addition to Alexa. |
 | **Install updates automatically** | Checks once a day and installs new versions by itself, keeping your settings. Off means the app only tells you an update is available. |
-| **Alerts: Finished / Failed / Cancelled** | Tick which outcomes alert you. Unticking one stops both the Alexa doorbell and the Windows notification for it. || **Alerts: wording** | The text of the Windows notification for each outcome. It does not change what Alexa says (that's set in its routine). You can use `{printer}`, `{name}` (the print's file name), `{time}` (how long it ran) and `{filament}` (about how much it used). |
+| **Alerts: Finished / Failed / Cancelled** | Tick which outcomes alert you. Unticking one stops both the Alexa doorbell and the Windows notification for it. |
+| **Alerts: wording** | The text of the Windows notification for each outcome. It does not change what Alexa says (that's set in its routine). You can use `{printer}`, `{name}` (the print's file name), `{time}` (how long it ran) and `{filament}` (about how much it used). |
 | **Dashboard addresses** | The links shown here open the dashboard. Use the IP address one on phones and other computers. |
 | **Back up settings… / Restore settings…** | Saves everything to a file, or loads it back (see below). The backup contains your Sinric App Secret. |
 | **Setup checklist** | Re-opens the first-run checklist. |
